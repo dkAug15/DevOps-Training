@@ -3,8 +3,7 @@ stage'git checkout'
 git 'https://github.com/dkAug15/DevOps-Training.git'
 
 stage 'Code Analysis'
-sh 'sudo mvn sonar:sonar -Dsonar.projectKey=xxxxx -Dsonar.organization=xxxxxx -
-Dsonar.host.url=https://sonarcloud.io'
+sh 'sudo mvn sonar:sonar -Dsonar.projectKey=dkAug15_DevOps-Training -Dsonar.organization=dkaug15 -Dsonar.host.url=https://sonarcloud.io'
 
 
 stage 'compile'
