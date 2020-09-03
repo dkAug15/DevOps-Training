@@ -17,5 +17,9 @@ sh 'mvn package'
 
 stage 'archiveArtifacts'
 archiveArtifacts 'target/*.war'
+ 
+stage ('upload .jar to nexus')
+sh 'curl -v -u admin:admin123 --upload-file target/*.war http://18.191.208.246:8081/nexus/content/repositories/releases/'
+
 }
 
