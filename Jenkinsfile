@@ -19,13 +19,13 @@ stage 'archiveArtifacts'
 archiveArtifacts 'target/*.war'
  
 stage ('upload .jar to nexus')
-sh 'curl -v -u admin:admin123 --upload-file target/*.war http://18.191.208.246:8081/nexus/content/snapshots/releases/'
+sh 'curl -v -u admin:admin123 --upload-file target/*.war http://18.191.208.246:8081/nexus/content/repositories/snapshots/'
 
 }
 
 node Webserver {
 stage ('Download *.war to nexus')
-sh 'curl -O http://<ip>:8081/nexus/content/repositories/snapshots/DevOps-Training.war'
+sh 'curl -O http://18.191.208.246:8081:8081/nexus/content/repositories/snapshots/DevOps-Training.war'
 
 input 'Pipeline has paused and needs your input before proceeding'
 stage 'deploy war on WebServer node'
